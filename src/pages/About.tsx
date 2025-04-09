@@ -7,7 +7,9 @@ import { aboutImages } from "../imgUrl";
 //components
 import Gallery from "../components/Gallery";
 import Map from "../components/Map";
+
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 const StyledAbout = styled(motion.div)`
   padding: 8rem 0rem 0rem 0rem;
@@ -130,6 +132,7 @@ const StyledDescriptionText = styled.div<StyledDescriptionTextProps>`
   }
   @media (max-width: 1800px) {
     width: 100%;
+    padding: 0.5rem;
     h3 {
       font-size: 1.8rem;
     }
@@ -319,7 +322,6 @@ const StyledFront = styled.div`
     object-fit: contain;
   }
 
-  /* ✅ 小屏幕适配（保证100%布局不变，仅调整小屏幕） */
   @media (max-width: 2000px) {
     width: 80%;
     padding: 2rem;
@@ -380,7 +382,6 @@ const StyledOpeningHour = styled.div`
     font-size: 1.4rem;
   }
 
-  /* ✅ 适配小屏幕 */
   @media (max-width: 2000px) {
     width: 45%;
     max-width: 400px;
@@ -427,116 +428,121 @@ function About() {
   // picContainer animation
   const { ref: scrollRef, smoothBgY } = useScrollAnimation();
   return (
-    <StyledAbout
-      variants={fadeIn}
-      initial="hidden"
-      animate="zeroEightShow"
-      exit={{ opacity: 0 }}
-    >
-      <StyledDisplayPicContainer
-        ref={scrollRef}
-        style={{ backgroundPositionY: `${smoothBgY.get()}px` }}
+    <>
+      <Helmet>
+        <title>Tomo | About</title>
+      </Helmet>
+      <StyledAbout
+        variants={fadeIn}
+        initial="hidden"
+        animate="zeroEightShow"
+        exit={{ opacity: 0 }}
       >
-        <StyledTitle
-          variants={fadeIn}
-          initial="hidden"
-          animate="oneAndHalfShow"
+        <StyledDisplayPicContainer
+          ref={scrollRef}
+          style={{ backgroundPositionY: `${smoothBgY.get()}px` }}
         >
-          <h2>Best</h2>
-          <h2>Quality</h2>
-          <h2>Foods</h2>
-        </StyledTitle>
-      </StyledDisplayPicContainer>
-      <StyledDescription>
-        <StyledDescriptionText $textwidth="70%" $h3fontcolor="#FFA46F">
-          <TomoBackground
+          <StyledTitle
             variants={fadeIn}
             initial="hidden"
-            animate="leftToRight"
+            animate="oneAndHalfShow"
           >
-            Tomo
-          </TomoBackground>
-          <h3>Welcome to Tomo,</h3>
-          <h3>where freshness meets craftsmanship.</h3>
-          <p>
-            We take pride in using the finest ingredients to create authentic
-            Japanese flavors. Our sushi is handcrafted by skilled chefs,
-            ensuring perfect balance and texture in every bite. From classic
-            nigiri to creative rolls, each piece is a work of art. We also offer
-            fresh salads made with crisp seasonal vegetables, paired with
-            Japanese fried chicken, tempura, and more for a delicious twist. At
-            Tomo, freshness is our promise, and quality is our craft.Join us for
-            an unforgettable taste of Japan!
-          </p>
+            <h2>Best</h2>
+            <h2>Quality</h2>
+            <h2>Foods</h2>
+          </StyledTitle>
+        </StyledDisplayPicContainer>
+        <StyledDescription>
+          <StyledDescriptionText $textwidth="70%" $h3fontcolor="#FFA46F">
+            <TomoBackground
+              variants={fadeIn}
+              initial="hidden"
+              animate="leftToRight"
+            >
+              Tomo
+            </TomoBackground>
+            <h3>Welcome to Tomo,</h3>
+            <h3>where freshness meets craftsmanship.</h3>
+            <p>
+              We take pride in using the finest ingredients to create authentic
+              Japanese flavors. Our sushi is handcrafted by skilled chefs,
+              ensuring perfect balance and texture in every bite. From classic
+              nigiri to creative rolls, each piece is a work of art. We also
+              offer fresh salads made with crisp seasonal vegetables, paired
+              with Japanese fried chicken, tempura, and more for a delicious
+              twist. At Tomo, freshness is our promise, and quality is our
+              craft.Join us for an unforgettable taste of Japan!
+            </p>
 
-          <Gallery />
-        </StyledDescriptionText>
-        <StyledCraft src={aboutImages.craft} alt="craft" />
-      </StyledDescription>
-      <StyledDescription
-        $bgColor="#FFA46F"
-        $isActive={true}
-        $transparentRate="85"
-        $transparentDirection="right"
-      >
-        <StyledDescriptionText
-          $h3fontcolor="white"
-          $textwidth="50%"
-          $pfontcolor="white"
+            <Gallery />
+          </StyledDescriptionText>
+          <StyledCraft src={aboutImages.craft} alt="craft" />
+        </StyledDescription>
+        <StyledDescription
+          $bgColor="#FFA46F"
+          $isActive={true}
+          $transparentRate="85"
+          $transparentDirection="right"
         >
-          <div>
-            <h3>Craft your own</h3>
-            <p>
-              At Tomo, we offer a unique and customizable Japanese salad
-              experience. Our salad is divided into two delicious bases: a rice
-              and vegetable salad or a soba and vegetable salad. Both options
-              can be paired with a variety of authentic Japanese dishes. With
-              endless combinations to choose from, our salad allows customers to
-              create their perfect meal, satisfying every taste and preference.
-              Whether you're looking for something light or rich in flavor, Tomo
-              has something for everyone.
-            </p>
-          </div>
-        </StyledDescriptionText>
-        <StyledCombinedImg>
-          <img src={aboutImages.bowl} alt="bowl" />
-          <img src={aboutImages.soba} alt="soba" />
-        </StyledCombinedImg>
-      </StyledDescription>
-      <StyledSushiDescription>
-        <StyledSushiImg>
-          <img src={aboutImages.service} alt="service" />
-        </StyledSushiImg>
-        <StyledSushiText>
-          <h3>Pick and GO!</h3>
-          <div>
-            <p>
-              If you don't have time to sit down and enjoy our lunch salads,
-            </p>
-            <p>we also offer a variety of sushi options.</p>{" "}
-            <p>
-              we also offer a variety of sushi options. Fast, efficient, and
-              ready to go – just grab and go!
-            </p>
-            <p>Perfect for those on the move.</p>
-          </div>
-          <button onClick={() => navigate("/menu")}>Explore more</button>
-        </StyledSushiText>
-      </StyledSushiDescription>
-      <StyledFront>
-        <img src={aboutImages.front} />
-        <StyledOpeningHour>
-          <h2>Opening hour</h2>
-          <h3>Monday to Friday</h3>
-          <h3>lunch time 10:30-3:00 </h3>
-          <h3>dinner time 5:00-8:00</h3>
-          <h3>Saturday Sunday Close</h3>
-        </StyledOpeningHour>
-      </StyledFront>
-      <StyledMap>
-        <Map />
-      </StyledMap>
-    </StyledAbout>
+          <StyledDescriptionText
+            $h3fontcolor="white"
+            $textwidth="50%"
+            $pfontcolor="white"
+          >
+            <div>
+              <h3>Craft your own</h3>
+              <p>
+                At Tomo, we offer a unique and customizable Japanese salad
+                experience. Our salad is divided into two delicious bases: a
+                rice and vegetable salad or a soba and vegetable salad. Both
+                options can be paired with a variety of authentic Japanese
+                dishes. With endless combinations to choose from, our salad
+                allows customers to create their perfect meal, satisfying every
+                taste and preference. Whether you're looking for something light
+                or rich in flavor, Tomo has something for everyone.
+              </p>
+            </div>
+          </StyledDescriptionText>
+          <StyledCombinedImg>
+            <img src={aboutImages.bowl} alt="bowl" />
+            <img src={aboutImages.soba} alt="soba" />
+          </StyledCombinedImg>
+        </StyledDescription>
+        <StyledSushiDescription>
+          <StyledSushiImg>
+            <img src={aboutImages.service} alt="service" />
+          </StyledSushiImg>
+          <StyledSushiText>
+            <h3>Pick and GO!</h3>
+            <div>
+              <p>
+                If you don't have time to sit down and enjoy our lunch salads,
+              </p>
+              <p>we also offer a variety of sushi options.</p>{" "}
+              <p>
+                we also offer a variety of sushi options. Fast, efficient, and
+                ready to go – just grab and go!
+              </p>
+              <p>Perfect for those on the move.</p>
+            </div>
+            <button onClick={() => navigate("/menu")}>Explore more</button>
+          </StyledSushiText>
+        </StyledSushiDescription>
+        <StyledFront>
+          <img src={aboutImages.front} />
+          <StyledOpeningHour>
+            <h2>Opening hour</h2>
+            <h3>Monday to Friday</h3>
+            <h3>lunch time 10:30-3:00 </h3>
+            <h3>dinner time 5:00-8:00</h3>
+            <h3>Saturday Sunday Close</h3>
+          </StyledOpeningHour>
+        </StyledFront>
+        <StyledMap>
+          <Map />
+        </StyledMap>
+      </StyledAbout>
+    </>
   );
 }
 

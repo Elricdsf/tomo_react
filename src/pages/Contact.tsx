@@ -6,6 +6,7 @@ import Map from "../components/Map";
 import axios from "axios";
 import { fadeIn } from "../animation";
 import { contactImages } from "../imgUrl";
+import { Helmet } from "react-helmet";
 
 const StyledContact = styled(motion.div)`
   display: flex;
@@ -120,6 +121,9 @@ function Contact() {
 
   return (
     <>
+      <Helmet>
+        <title>Tomo | Contact</title>
+      </Helmet>
       <StyledContact variants={fadeIn} initial="hidden" animate="zeroEightShow">
         <h2>Contact us</h2>
         <p>Address: Shop 2/34 Marcus Clarke St, Canberra ACT 2601</p>

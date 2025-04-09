@@ -8,11 +8,12 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import DishDetail from "../components/DishDetail";
 import { fadeIn } from "../animation";
+import { Helmet } from "react-helmet";
 
 const StyledMenuList = styled(motion.div)`
-  padding: 8rem 2rem;
+  padding: 8rem 1.5rem;
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
   min-height: 800px;
   overflow-y: hidden;
   h2 {
@@ -21,11 +22,13 @@ const StyledMenuList = styled(motion.div)`
     padding: 1rem 0rem 2rem 0rem;
   }
   @media (max-width: 767px) {
-    /* display: flex; */
-    /* justify-content: center; */
+    width: 100%;
+    padding: 8rem 1.5rem;
     position: relative;
-    left: 6%;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    margin: 0 auto;
+    h2{
+      font-size: 2.3rem;
+    }
   }
 `;
 const StyledDishes = styled(motion.div)`
@@ -33,6 +36,9 @@ const StyledDishes = styled(motion.div)`
   min-height: 60%;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 2rem 1rem;
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
 `;
 const Wrapper = styled.div`
   background-color: rgb(254, 248, 238);
@@ -97,6 +103,9 @@ function Home() {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>Tomo | Menu</title>
+      </Helmet>
       <StyledMenuList
         variants={fadeIn}
         initial="hidden"

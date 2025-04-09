@@ -40,6 +40,7 @@ const StyledNavLink = styled(Link)<{ isotherhovered: string | undefined }>`
   color: #ffa46f;
   transition: opacity 0.4s ease-in-out;
   opacity: ${(props) => (props.isotherhovered === "true" ? 0.5 : 1)};
+  font-size:clamp(1.6rem, 1.8vw, 3rem);
 `;
 
 const StyledLogo = styled.div`
