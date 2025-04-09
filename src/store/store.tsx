@@ -6,11 +6,8 @@ export const store = configureStore({
     dishDetail: dishDetailReducer,
     dishes: dishesReducer,
   },
-  // devTools: process.env.NODE_ENV !== "production",
   devTools: true,
 });
-store.subscribe(() => {
-  console.log("Redux Store Updated:", store.getState());
-});
+
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

@@ -98,7 +98,7 @@ const StyledText = styled(motion.div)`
   }
 `;
 
-const Description = styled(motion.p)`
+const Description = styled(motion.div)`
   padding-right: 0.2rem;
   h4 {
     color: #a99191;

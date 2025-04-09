@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { dishGetUrl, dishesGetUrl } from "../api-dev";
+import { dishGetUrl, dishesGetUrl } from "../api";
 import { handleAxiosError } from "../util";
 
 interface dish {
@@ -20,7 +20,7 @@ interface dishDetailState {
   error: string | null;
 }
 interface dishesState {
-  udon:dish[];
+  udon: dish[];
   sauce: dish[];
   bowl: dish[];
   soba: dish[];
@@ -52,7 +52,7 @@ const initialDishDetailState: dishDetailState = {
 };
 
 const initialDishesState: dishesState = {
-  udon:[],
+  udon: [],
   sauce: [],
   bowl: [],
   soba: [],
@@ -80,7 +80,6 @@ const dishesSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchDishes.fulfilled, (state, action) => {
-        console.log("Payload received:", action.payload);
         state.loading = false;
         state.error = null;
         const { category } = action.meta.arg;
@@ -272,7 +271,6 @@ export const fetchDishes = createAsyncThunk(
       const url = params?.category
         ? dishesGetUrl(params.category)
         : dishesGetUrl();
-      console.log("fetchdishes url:" + url);
       const response = await axios.get(url);
       return response.data;
     } catch (error: any) {
@@ -286,8 +284,6 @@ export const loadDetail = createAsyncThunk(
   async (id: string, { rejectWithValue }) => {
     try {
       const detail = await axios.get(dishGetUrl(id));
-      console.log(detail.data);
-
       return detail.data;
     } catch (error: any) {
       return rejectWithValue(

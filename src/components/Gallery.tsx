@@ -1,23 +1,15 @@
 import { useState } from "react";
 import styled from "styled-components";
-import riceBowl from "../assets/riceBowl.png";
-import sobaSalad from "../assets/sobaSaladBowl.png";
-import grilledBeef from "../assets/TenderGrilledBeef.jpeg";
-import teriyakiChicken from "../assets/TeriyakiChicken.jpeg";
-import loverBox from "../assets/LoverBox.jpeg";
-import tempuraPrawn from "../assets/TempuraPrawn.png";
-import seaWeed from "../assets/SeaweedInari.jpeg";
-import salmonNigiri from "../assets/GrilledSalmonNigiri.png";
-
+import { galleryImage } from "../imgUrl";
 const images = [
-  riceBowl,
-  sobaSalad,
-  grilledBeef,
-  teriyakiChicken,
-  loverBox,
-  tempuraPrawn,
-  seaWeed,
-  salmonNigiri,
+  galleryImage.riceBowl,
+  galleryImage.sobaSalad,
+  galleryImage.grilledBeef,
+  galleryImage.teriyakiChicken,
+  galleryImage.loverBox,
+  galleryImage.tempuraPrawn,
+  galleryImage.seaWeed,
+  galleryImage.salmonNigiri,
 ];
 
 const visibleImages = 4;
@@ -30,11 +22,11 @@ const GalleryContainer = styled.div`
   position: relative;
 `;
 
-const GalleryWrapper = styled.div<{ translateX: number }>`
+const GalleryWrapper = styled.div<{ $translatex: number }>`
   display: flex;
   gap: 15px;
   transition: transform 0.3s ease-in-out;
-  transform: translateX(${(props) => props.translateX}px);
+  transform: translateX(${(props) => props.$translatex}px);
 `;
 
 const GalleryItem = styled.div`
@@ -52,10 +44,10 @@ const GalleryImage = styled.img`
   border-radius: 12px;
 `;
 
-const ArrowButton = styled.button<{ left?: boolean }>`
+const ArrowButton = styled.button<{ $left?: boolean }>`
   position: absolute;
   top: 50%;
-  ${(props) => (props.left ? "left: 10px;" : "right: 10px;")}
+  ${(props) => (props.$left ? "left: 10px;" : "right: 10px;")}
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.3);
   color: white;
@@ -91,12 +83,12 @@ const Gallery = () => {
 
   return (
     <GalleryContainer>
-      <ArrowButton left onClick={() => scrollGallery("left")}>
+      <ArrowButton $left onClick={() => scrollGallery("left")}>
         &#10094;
       </ArrowButton>
 
       <div style={{ overflow: "hidden" }}>
-        <GalleryWrapper translateX={-currentIndex * imageWidth}>
+        <GalleryWrapper $translatex={-currentIndex * imageWidth}>
           {images.map((image, index) => (
             <GalleryItem key={index}>
               <GalleryImage src={image} alt={`Gallery ${index + 1}`} />

@@ -19,6 +19,7 @@ const StyledAbout = styled(motion.div)`
 `;
 
 const StyledDisplayPicContainer = styled.div`
+  position: absolute;
   background-image: url(${aboutImages.display});
   background-repeat: no-repeat;
   background-size: 90%;
@@ -30,7 +31,7 @@ const StyledDisplayPicContainer = styled.div`
   overflow: visible;
   position: relative;
   background-attachment: fixed;
-  @media(max-width:1100px){
+  @media (max-width: 1100px) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,21 +52,21 @@ const StyledTitle = styled(motion.div)`
   margin-top: 5%;
   padding-bottom: 10rem;
   @media (max-width: 1800px) {
-    left:20%;
-    top:25%;
-    margin:0 auto;
-    max-width:80%;
+    left: 20%;
+    top: 25%;
+    margin: 0 auto;
+    max-width: 80%;
     flex-direction: row;
     h2 {
-      font-size:2.5rem;
+      font-size: 2.5rem;
       padding: 0.4rem;
     }
   }
   @media (max-width: 1800px) {
-    top:40%;
-    left:0;
-    margin:0 auto;
-    max-width:50%;
+    top: 40%;
+    left: 0;
+    margin: 0 auto;
+    max-width: 50%;
     flex-direction: row;
     h2 {
       padding: 0.4rem;
@@ -73,11 +74,11 @@ const StyledTitle = styled(motion.div)`
   }
 `;
 interface StyledColoredPProps {
-  bgColor?: string;
-  fontColor?: string;
-  isActive?: boolean;
-  transparentRate?: string;
-  transparentDirection?: string;
+  $bgColor?: string;
+  $fontColor?: string;
+  $isActive?: boolean;
+  $transparentRate?: string;
+  $transparentDirection?: string;
 }
 const StyledDescription = styled.div<StyledColoredPProps>`
   display: flex;
@@ -85,10 +86,10 @@ const StyledDescription = styled.div<StyledColoredPProps>`
   gap: clamp(1rem, 1vw, 3rem);
   width: 80%;
   height: auto;
-  background-color: ${(props) => props.bgColor};
+  background-color: ${(props) => props.$bgColor};
   background: ${(props) =>
-    props.isActive
-      ? `linear-gradient(to ${props.transparentDirection}, ${props.bgColor} ${props.transparentRate}%, transparent ${props.transparentRate}%)`
+    props.$isActive
+      ? `linear-gradient(to ${props.$transparentDirection}, ${props.$bgColor} ${props.$transparentRate}%, transparent ${props.$transparentRate}%)`
       : ""};
   max-width: 2200px;
   min-width: 300px;
@@ -100,18 +101,18 @@ const StyledDescription = styled.div<StyledColoredPProps>`
     align-items: center;
     width: 100%;
     padding: 8vw;
-    background-color: ${(props) => props.bgColor};
+    background-color: ${(props) => props.$bgColor};
     margin: 0;
     padding: 0;
   }
 `;
 interface StyledDescriptionTextProps {
-  textWidth?: string;
-  h3FontColor?: string;
-  pFontColor?: string;
+  $textwidth?: string;
+  $h3fontcolor?: string;
+  $pfontcolor?: string;
 }
 const StyledDescriptionText = styled.div<StyledDescriptionTextProps>`
-  width: ${(props) => props.textWidth || "100%"};
+  width: ${(props) => props.$textwidth || "100%"};
   padding: 0rem 5rem;
   display: flex;
   flex-direction: column;
@@ -119,13 +120,13 @@ const StyledDescriptionText = styled.div<StyledDescriptionTextProps>`
   position: relative;
   h3 {
     font-size: clamp(1vw, 2.7rem, 4rem);
-    color: ${(props) => props.h3FontColor || "black"};
+    color: ${(props) => props.$h3fontcolor || "black"};
   }
   p {
     font-size: 1.3rem;
     padding: 1rem 0rem 5rem 0rem;
     line-height: 2;
-    color: ${(props) => props.pFontColor || "black"};
+    color: ${(props) => props.$pfontcolor || "black"};
   }
   @media (max-width: 1800px) {
     width: 100%;
@@ -426,7 +427,12 @@ function About() {
   // picContainer animation
   const { ref: scrollRef, smoothBgY } = useScrollAnimation();
   return (
-    <StyledAbout variants={fadeIn} initial="hidden" animate="zeroEightShow" exit={{ opacity: 0 }}>
+    <StyledAbout
+      variants={fadeIn}
+      initial="hidden"
+      animate="zeroEightShow"
+      exit={{ opacity: 0 }}
+    >
       <StyledDisplayPicContainer
         ref={scrollRef}
         style={{ backgroundPositionY: `${smoothBgY.get()}px` }}
@@ -442,7 +448,7 @@ function About() {
         </StyledTitle>
       </StyledDisplayPicContainer>
       <StyledDescription>
-        <StyledDescriptionText textWidth="70%" h3FontColor="#FFA46F">
+        <StyledDescriptionText $textwidth="70%" $h3fontcolor="#FFA46F">
           <TomoBackground
             variants={fadeIn}
             initial="hidden"
@@ -468,27 +474,29 @@ function About() {
         <StyledCraft src={aboutImages.craft} alt="craft" />
       </StyledDescription>
       <StyledDescription
-        bgColor="#FFA46F"
-        isActive={true}
-        transparentRate="85"
-        transparentDirection="right"
+        $bgColor="#FFA46F"
+        $isActive={true}
+        $transparentRate="85"
+        $transparentDirection="right"
       >
         <StyledDescriptionText
-          h3FontColor="white"
-          textWidth="50%"
-          pFontColor="white"
+          $h3fontcolor="white"
+          $textwidth="50%"
+          $pfontcolor="white"
         >
-          <p>
+          <div>
             <h3>Craft your own</h3>
-            At Tomo, we offer a unique and customizable Japanese salad
-            experience. Our salad is divided into two delicious bases: a rice
-            and vegetable salad or a soba and vegetable salad. Both options can
-            be paired with a variety of authentic Japanese dishes. With endless
-            combinations to choose from, our salad allows customers to create
-            their perfect meal, satisfying every taste and preference. Whether
-            you're looking for something light or rich in flavor, Tomo has
-            something for everyone.
-          </p>
+            <p>
+              At Tomo, we offer a unique and customizable Japanese salad
+              experience. Our salad is divided into two delicious bases: a rice
+              and vegetable salad or a soba and vegetable salad. Both options
+              can be paired with a variety of authentic Japanese dishes. With
+              endless combinations to choose from, our salad allows customers to
+              create their perfect meal, satisfying every taste and preference.
+              Whether you're looking for something light or rich in flavor, Tomo
+              has something for everyone.
+            </p>
+          </div>
         </StyledDescriptionText>
         <StyledCombinedImg>
           <img src={aboutImages.bowl} alt="bowl" />
@@ -501,12 +509,17 @@ function About() {
         </StyledSushiImg>
         <StyledSushiText>
           <h3>Pick and GO!</h3>
-          <p>
-            If you don't have time to sit down and enjoy our lunch salads,
-            <p>we also offer a variety of sushi options.</p> we also offer a
-            variety of sushi options. Fast, efficient, and ready to go – just
-            grab and go! <p>Perfect for those on the move.</p>
-          </p>
+          <div>
+            <p>
+              If you don't have time to sit down and enjoy our lunch salads,
+            </p>
+            <p>we also offer a variety of sushi options.</p>{" "}
+            <p>
+              we also offer a variety of sushi options. Fast, efficient, and
+              ready to go – just grab and go!
+            </p>
+            <p>Perfect for those on the move.</p>
+          </div>
           <button onClick={() => navigate("/menu")}>Explore more</button>
         </StyledSushiText>
       </StyledSushiDescription>

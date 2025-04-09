@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { getFeedbackUrl } from "../api-dev";
+import { getFeedbackUrl } from "../api";
 import Map from "../components/Map";
 import axios from "axios";
 import { fadeIn } from "../animation";
-import {contactImages} from "../imgUrl";
+import { contactImages } from "../imgUrl";
 
 const StyledContact = styled(motion.div)`
   display: flex;

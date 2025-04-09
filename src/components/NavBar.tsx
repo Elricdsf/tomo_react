@@ -35,11 +35,11 @@ const NavLinks = styled.div`
   font-weight: lighter;
 `;
 
-const StyledNavLink = styled(Link)<{ isOtherHovered: boolean }>`
+const StyledNavLink = styled(Link)<{ isotherhovered: string | undefined }>`
   text-decoration: none;
   color: #ffa46f;
   transition: opacity 0.4s ease-in-out;
-  opacity: ${(props) => (props.isOtherHovered ? 0.5 : 1)};
+  opacity: ${(props) => (props.isotherhovered === "true" ? 0.5 : 1)};
 `;
 
 const StyledLogo = styled.div`
@@ -69,7 +69,7 @@ function NavBar() {
             to={`/${item}`}
             onMouseEnter={() => setHovered(item)}
             onMouseLeave={() => setHovered(null)}
-            isOtherHovered={hovered !== null && hovered !== item}
+            isotherhovered={hovered !== null && hovered !== item ? "true" : undefined}
           >
             {item.charAt(0).toUpperCase() + item.slice(1)}
           </StyledNavLink>

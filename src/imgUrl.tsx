@@ -15,3 +15,13 @@ export const contactImages={
 export const navImage={
     logo:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/tomo.jpg"
 }
+export const galleryImage={
+    riceBowl:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/riceBowl.png",
+    sobaSalad:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/sobaSaladBowl.png",
+    grilledBeef:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/TenderGrilledBeef.jpeg",
+    teriyakiChicken:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/TeriyakiChicken.jpeg",
+    loverBox:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/LoverBox.jpeg",
+    tempuraPrawn:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/TempuraPrawn.png",
+    seaWeed:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/SeaweedInari.jpeg",
+    salmonNigiri:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/GrilledSalmonNigiri.png"
+}
