@@ -1,4 +1,3 @@
-import React from "react";
 //style
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -15,7 +14,7 @@ interface menuState {
   id: string;
 }
 
-function Menu({ id, name, ingredients, img }: menuState) {
+function Menu({ id, name, img }: menuState) {
   const dispatch: AppDispatch = useDispatch();
   const dispatchDetail = () => {
     document.body.style.overflow = "hidden";

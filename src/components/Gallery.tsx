@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import riceBowl from "../assets/riceBowl.png";
 import sobaSalad from "../assets/sobaSaladBowl.png";

@@ -1,5 +1,4 @@
 const dishes_url = "http://localhost:5000/api/dishes/";
-const users_url = "http://localhost:5000/api/users/";
 
 // dish
 export const dishAddUrl = `${dishes_url}addDish`;
