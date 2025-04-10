@@ -23,7 +23,7 @@ const StyledMenuList = styled(motion.div)`
   }
   @media (max-width: 767px) {
     width: 100%;
-    padding: 8rem 1.5rem;
+    padding: 8rem 0.5rem;
     position: relative;
     margin: 0 auto;
     h2{
@@ -37,7 +37,7 @@ const StyledDishes = styled(motion.div)`
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 2rem 1rem;
   @media (max-width: 767px) {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   }
 `;
 const Wrapper = styled.div`
