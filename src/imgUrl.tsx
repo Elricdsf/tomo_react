@@ -1,27 +1,27 @@
 export const aboutImages = {
-    display:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/display.png",
-    bowl:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/bowl.jpg",
-    soba:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/soba.jpg",
-    craft:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/Craft.jpg",
-    service:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/service.png",
-    food2:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/food2.jpg",
-    front:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/TomoFront.jpg",
+    display:"https://tomo.alexsfddev.workers.dev/about/display.png",
+    bowl:"https://tomo.alexsfddev.workers.dev/about/bowl.jpg",
+    soba:"https://tomo.alexsfddev.workers.dev/about/soba.jpg",
+    craft:"https://tomo.alexsfddev.workers.dev/about/Craft.jpg",
+    service:"https://tomo.alexsfddev.workers.dev/about/service.png",
+    food2:"https://tomo.alexsfddev.workers.dev/about/food2.jpg",
+    front:"https://tomo.alexsfddev.workers.dev/about/TomoFront.jpg",
 }
 
 export const contactImages={
-    food1:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/food1.jpg"
+    food1:"https://tomo.alexsfddev.workers.dev/about/food1.jpg"
 }
 
 export const navImage={
-    logo:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/tomo.jpg"
+    logo:"https://tomo.alexsfddev.workers.dev/about/tomo.jpg"
 }
 export const galleryImage={
-    riceBowl:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/riceBowl.png",
-    sobaSalad:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/sobaSaladBowl.png",
-    grilledBeef:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/TenderGrilledBeef.jpeg",
-    teriyakiChicken:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/TeriyakiChicken.jpeg",
-    loverBox:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/LoverBox.jpeg",
-    tempuraPrawn:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/TempuraPrawn.png",
-    seaWeed:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/SeaweedInari.jpeg",
-    salmonNigiri:"https://pub-cda208df819a4eebb195d7ada391f93e.r2.dev/GrilledSalmonNigiri.png"
+    riceBowl:"https://tomo.alexsfddev.workers.dev/about/riceBowl.png",
+    sobaSalad:"https://tomo.alexsfddev.workers.dev/about/sobaSaladBowl.png",
+    grilledBeef:"https://tomo.alexsfddev.workers.dev/about/TenderGrilledBeef.jpeg",
+    teriyakiChicken:"https://tomo.alexsfddev.workers.dev/about/TeriyakiChicken.jpeg",
+    loverBox:"https://tomo.alexsfddev.workers.dev/about/LoverBox.jpeg",
+    tempuraPrawn:"https://tomo.alexsfddev.workers.dev/about/TempuraPrawn.png",
+    seaWeed:"https://tomo.alexsfddev.workers.dev/about/SeaweedInari.jpeg",
+    salmonNigiri:"https://tomo.alexsfddev.workers.dev/about/GrilledSalmonNigiri.png"
 }
