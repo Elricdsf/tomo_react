@@ -13,7 +13,7 @@ export const contactImages={
 }
 
 export const navImage={
-    logo:"https://tomo.alexsfddev.workers.dev/about/tomo.jpg"
+    logo:"https://tomo.alexsfddev.workers.dev/about/tomo.png"
 }
 export const galleryImage={
     riceBowl:"https://tomo.alexsfddev.workers.dev/about/riceBowl.png",
